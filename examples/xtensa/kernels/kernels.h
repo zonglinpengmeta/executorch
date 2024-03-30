@@ -16,6 +16,8 @@ namespace impl {
 namespace HiFi {
 namespace kernels {
 
+void memcpy(void* dst, const void* src, size_t num_bytes);
+
 WORD32 matmul_asym8uxasym8u_asym8u(
     UWORD8* __restrict__ p_out, // output uint8 matrix
     const UWORD8* __restrict__ p_mat1, // weight uint8 matrix
