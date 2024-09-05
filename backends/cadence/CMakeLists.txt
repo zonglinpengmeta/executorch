@@ -45,15 +45,10 @@ set(_common_compile_options -Wno-deprecated-declarations -fPIC)
 
 # Find prebuilt libraries. executorch package should contain portable_ops_lib,
 # etdump, bundled_program.
-find_package(executorch CONFIG REQUIRED)
 target_link_options_shared_lib(executorch)
-target_link_options_shared_lib(portable_ops_lib)
 
 target_include_directories(executorch INTERFACE ${_common_include_directories})
 
-find_package(
-  gflags REQUIRED PATHS ${CMAKE_CURRENT_BINARY_DIR}/../../third-party
-)
 
 add_executable(cadence_runner cadence_runner/cadence_runner.cpp)
 target_compile_options(executorch INTERFACE -DET_EVENT_TRACER_ENABLED)
